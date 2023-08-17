@@ -168,10 +168,9 @@ void assert_failed(uint8_t *file, uint32_t line)
 
 ## Output  :
 i: OFF
- https://user-images.githubusercontent.com/119477782/261360371-ef95a34e-6e6d-43b6-968d-c0d8dc672aac.png
+ 
  
 ii: ON
- https://user-images.githubusercontent.com/119477782/261360519-14f8f9c5-a701-4c7f-920f-d15208134652.png
  
 ## Result :
 Interfacing a digital output with ARM microcontroller based IOT development is executed and the results are verified.
