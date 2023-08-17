@@ -72,46 +72,29 @@ The main features of LPC2148 include the following.
 12. connect the stm nucleo board and click on run 
 ![image](https://user-images.githubusercontent.com/36288975/226189649-b5dff389-91df-4eca-b84a-1127c6562637.png)
 
-
-
-
-
-
 ## STM 32 CUBE PROGRAM :
 ```
-
 #include "main.h"
-
-
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-
 int main(void)
 {
-  
   HAL_Init();
-
-  
   SystemClock_Config();
-
   MX_GPIO_Init();
   while (1)
   {
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
-	  HAL_Delay(3000);
+	  HAL_Delay(1000);
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
-	  HAL_Delay(3000);
+	  HAL_Delay(1000);2
   }
- 
 }
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-
-  
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
- 
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
   RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
@@ -121,7 +104,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
- 
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK3|RCC_CLOCKTYPE_HCLK
                               |RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_PCLK1
                               |RCC_CLOCKTYPE_PCLK2;
@@ -136,19 +118,16 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 }
-
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   __HAL_RCC_GPIOA_CLK_ENABLE();
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
-
   GPIO_InitStruct.Pin = GPIO_PIN_0;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
 }
 void Error_Handler(void)
 {
@@ -156,21 +135,17 @@ void Error_Handler(void)
   while (1)
   {
   }
-  
 }
-
 #ifdef  USE_FULL_ASSERT
 void assert_failed(uint8_t *file, uint32_t line)
 {
-  
 }
+#endif
 ```
-
 ## Output  :
-i: OFF
- 
- 
-ii: ON
- 
+### i)OFF
+![image](https://github.com/mathes6112004/EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/119477782/ef95a34e-6e6d-43b6-968d-c0d8dc672aac)
+### ii)ON
+![image](https://github.com/mathes6112004/EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/119477782/14f8f9c5-a701-4c7f-920f-d15208134652)
 ## Result :
 Interfacing a digital output with ARM microcontroller based IOT development is executed and the results are verified.
